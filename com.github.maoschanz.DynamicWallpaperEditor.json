@@ -1,7 +1,7 @@
 {
 	"app-id" : "com.github.maoschanz.DynamicWallpaperEditor",
 	"runtime" : "org.gnome.Platform",
-	"runtime-version" : "49",
+	"runtime-version" : "50",
 	"sdk" : "org.gnome.Sdk",
 	"command" : "dynamic-wallpaper-editor",
 	"finish-args" : [
@@ -10,18 +10,9 @@
 		"--socket=wayland",
 		"--filesystem=home:ro"
 	],
-    "cleanup": [
-        "/include",
-        "/lib/pkgconfig",
-        "/man",
-        "/share/doc",
-        "/share/gtk-doc",
-        "/share/man",
-        "/share/pkgconfig",
-        "/share/vala",
-        "*.la",
-        "*.a"
-    ],
+	"cleanup-commands": [
+		"python3 -m compileall --invalidation-mode=unchecked-hash /app"
+	],
 	"modules" : [{
 		"name" : "dynamic-wallpaper-editor",
 		"buildsystem" : "meson",
