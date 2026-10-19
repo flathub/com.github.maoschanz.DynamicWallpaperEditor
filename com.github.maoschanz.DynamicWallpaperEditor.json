@@ -1,31 +1,34 @@
 {
-	"app-id" : "com.github.maoschanz.DynamicWallpaperEditor",
-	"runtime" : "org.gnome.Platform",
-	"runtime-version" : "50",
-	"sdk" : "org.gnome.Sdk",
-	"command" : "dynamic-wallpaper-editor",
-	"finish-args" : [
-		"--share=ipc",
-		"--socket=x11",
-		"--socket=wayland",
-		"--filesystem=home:ro"
-	],
-	"cleanup-commands": [
-		"python3 -m compileall --invalidation-mode=unchecked-hash /app"
-	],
-	"modules" : [{
-		"name" : "dynamic-wallpaper-editor",
-		"buildsystem" : "meson",
-		"sources" : [{
-			"type" : "git",
-			"tag" : "2.7",
-			"commit" : "1973696f339673ad31b753cc50bc3c65c4fc66a7",
-			"url" : "https://github.com/maoschanz/dynamic-wallpaper-editor.git"
-		},
-		{
-			"type" : "patch",
-			"path" : "fix_appdata.patch"
-		}]
-	}]
+    "app-id": "com.github.maoschanz.DynamicWallpaperEditor",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "51",
+    "sdk": "org.gnome.Sdk",
+    "command": "dynamic-wallpaper-editor",
+    "finish-args": [
+        "--share=ipc",
+        "--socket=x11",
+        "--socket=wayland",
+        "--filesystem=home:ro"
+    ],
+    "cleanup-commands": [
+        "python3 -m compileall --invalidation-mode=unchecked-hash /app"
+    ],
+    "modules": [
+        {
+            "name": "dynamic-wallpaper-editor",
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "git",
+                    "tag": "2.7",
+                    "commit": "1973696f339673ad31b753cc50bc3c65c4fc66a7",
+                    "url": "https://github.com/maoschanz/dynamic-wallpaper-editor.git"
+                },
+                {
+                    "type": "patch",
+                    "path": "fix_appdata.patch"
+                }
+            ]
+        }
+    ]
 }
-
